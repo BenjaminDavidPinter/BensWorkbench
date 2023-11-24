@@ -34,7 +34,10 @@ public class Result<T, E> : IEquatable<T>
 
     public bool IsErr<F>() where F : Exception
     {
-        return typeof(F).Equals(ErrorObject.GetType());
+        if (ErrorObject is null)
+            return false;
+
+        return typeof(F).Equals(ErrorObject!.GetType());
     }
 
     public bool IsOK()

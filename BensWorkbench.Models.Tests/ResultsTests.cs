@@ -12,8 +12,8 @@ public class ResultsTests
     {
         var result = IsEligible(true) switch
         {
+            var errRslt when errRslt.IsErr<Exception>() => false,
             var okRslt when okRslt.IsOK() => true,
-            var errRslt when errRslt.IsErr() => false,
             _ => false
         };
 
@@ -26,7 +26,7 @@ public class ResultsTests
         var result = IsEligible(false) switch
         {
             var okRslt when okRslt.IsOK() => false,
-            var errRslt when errRslt.IsErr() => true,
+            var errRslt when errRslt.IsErr<Exception>() => true,
             _ => false
         };
 

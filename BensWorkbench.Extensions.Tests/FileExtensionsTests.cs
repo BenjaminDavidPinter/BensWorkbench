@@ -11,8 +11,8 @@ public class FileExtensionTests
     {
         var result = FileExtensions.ReadToBase64("Bunk filepath") switch
         {
-            var errRslt when errRslt.IsErr<FileNotFoundException>() => true,
             var errRslt when errRslt.IsErr<NotImplementedException>() => false,
+            var errRslt when errRslt.IsErr<FileNotFoundException>() => true,
             var okRslt when okRslt.IsOK() => false,
             _ => false
         };
