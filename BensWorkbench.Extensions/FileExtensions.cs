@@ -4,7 +4,7 @@ namespace BensWorkbench.Extensions;
 
 public static class FileExtensions
 {
-    public static Result<string, Exception> ReadToBase64(string filePath)
+    public static Result<string> ReadToBase64(string filePath)
     {
         try
         {
@@ -19,7 +19,7 @@ public static class FileExtensions
         }
     }
 
-    public static Result<int, Exception> 
+    public static Result<int>
       WriteBase64AsFile(string base64, string filePath, string fileName)
     {
         try
