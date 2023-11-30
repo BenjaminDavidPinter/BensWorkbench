@@ -22,6 +22,14 @@ public class FileExtensionTests
     }
 
     [Test]
+    public void TestInvalidRead_DiffSyntax()
+    {
+        var result = FileExtensions.ReadToBase64("Bunk filepath");
+
+        Assert.IsTrue(result.IsErr<FileNotFoundException>());
+    }
+
+    [Test]
     public void TestValidRead()
     {
         var result = FileExtensions.ReadToBase64("TestFile.txt") switch
