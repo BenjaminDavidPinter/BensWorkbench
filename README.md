@@ -11,4 +11,4 @@ Navigating the library:
     - ReadtoBase64() -> Read File to Base64 String
     - WriteBase64AsFile() -> Write Base64 String to File
 - BensWorkbench.Models *[Namespace]*
-  - Result<T,E> *[Class]*
+  - Result<T> *[Class]*
