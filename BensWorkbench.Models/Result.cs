@@ -24,7 +24,7 @@ public class Result<T, E> : IEquatable<T>
             throw ErrorObject;
 
 
-        return ValueInternal ?? throw (ErrorObject ?? new Exception());
+        return ValueInternal ?? throw (ErrorObject ?? new Exception("Attempted to Unwrap an unused Result"));
     }
 
     public bool IsErr()
