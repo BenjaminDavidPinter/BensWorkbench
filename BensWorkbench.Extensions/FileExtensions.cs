@@ -19,7 +19,8 @@ public static class FileExtensions
         }
     }
 
-    public static Result<int, Exception> WriteBase64AsFile(string base64, string filePath, string fileName)
+    public static Result<int, Exception> 
+      WriteBase64AsFile(string base64, string filePath, string fileName)
     {
         try
         {

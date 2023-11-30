@@ -1,7 +1,11 @@
-using System.IO.IsolatedStorage;
-
 namespace BensWorkbench.Models;
 
+/// <summary>
+/// Class which encapsulates function results as either a success type <typeparamref name="T"/>, 
+/// or some error type which extends Exception <typeparamref name="E"/>
+/// </summary>
+/// <typeparam name="T">Type for object which represents success</typeparam>
+/// <typeparam name="E">Exception type</typeparam>
 public class Result<T, E> : IEquatable<T>
     where E : Exception
 {
@@ -24,7 +28,8 @@ public class Result<T, E> : IEquatable<T>
             throw ErrorObject;
 
 
-        return ValueInternal ?? throw (ErrorObject ?? new Exception("Attempted to Unwrap an unused Result"));
+        return ValueInternal ??
+          throw (ErrorObject ?? new Exception("Attempted to Unwrap an unused Result"));
     }
 
     public bool IsErr()
