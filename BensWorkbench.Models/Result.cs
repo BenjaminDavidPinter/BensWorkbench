@@ -5,11 +5,9 @@ namespace BensWorkbench.Models;
 /// or some error type which extends Exception <typeparamref name="E"/>
 /// </summary>
 /// <typeparam name="T">Type for object which represents success</typeparam>
-/// <typeparam name="E">Exception type</typeparam>
-public class Result<T, E> : IEquatable<T>
-    where E : Exception
+public class Result<T> : IEquatable<T>
 {
-    private E? ErrorObject { get; }
+    private Exception? ErrorObject { get; }
     private T? ValueInternal { get; }
 
     public Result(T obj)
@@ -17,7 +15,7 @@ public class Result<T, E> : IEquatable<T>
         ValueInternal = obj;
     }
 
-    public Result(E exception)
+    public Result(Exception exception)
     {
         ErrorObject = exception;
     }
@@ -50,41 +48,41 @@ public class Result<T, E> : IEquatable<T>
         return ErrorObject is null && ValueInternal is not null;
     }
 
-    public static implicit operator Result<T, E>(T obj) => new(obj);
-    public static implicit operator Result<T, E>(E exception) => new(exception);
-    public static implicit operator T(Result<T, E> rslt) => rslt.Unwrap();
+    public static implicit operator Result<T>(T obj) => new(obj);
+    public static implicit operator Result<T>(Exception exception) => new(exception);
+    public static implicit operator T(Result<T> rslt) => rslt.Unwrap();
 
-    public static bool operator ==(Result<T, E> obj1, T obj2)
+    public static bool operator ==(Result<T> obj1, T obj2)
     {
         return obj1.Equals(obj2);
     }
 
-    public static bool operator !=(Result<T, E> obj1, T obj2)
+    public static bool operator !=(Result<T> obj1, T obj2)
     {
         return obj1.Equals(obj2);
     }
 
-    public static bool operator ==(Result<T, E> obj1, E obj2)
+    public static bool operator ==(Result<T> obj1, Exception obj2)
     {
         try
         {
             obj1.Unwrap();
             return false;
         }
-        catch (E exception)
+        catch (Exception exception)
         {
             return exception.Message == obj2.Message;
         }
     }
 
-    public static bool operator !=(Result<T, E> obj1, E obj2)
+    public static bool operator !=(Result<T> obj1, Exception obj2)
     {
         try
         {
             obj1.Unwrap();
             return true;
         }
-        catch (E exception)
+        catch (Exception exception)
         {
             return exception.Message != obj2.Message; ;
         }

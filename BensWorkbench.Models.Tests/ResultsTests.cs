@@ -33,7 +33,7 @@ public class ResultsTests
         Assert.IsTrue(result);
     }
 
-    public Result<bool, Exception> IsEligible(bool value)
+    public Result<bool> IsEligible(bool value)
     {
         if (value)
             return true;
