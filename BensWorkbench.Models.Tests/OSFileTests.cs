@@ -1,8 +1,6 @@
 [TestFixture]
 public class OSFileTests
 {
-    private OSFile testFile = new();
-
     [SetUp]
     public void Setup()
     {
