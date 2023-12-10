@@ -12,3 +12,8 @@ Navigating the library:
     - WriteBase64AsFile() -> Write Base64 String to File
 - BensWorkbench.Models *[Namespace]*
   - Result<T> *[Class]*
+
+
+  ### Developer Notes:
+
+  - [ ] Add the ability to load OSFile from URI

@@ -5,13 +5,13 @@ public class OSFileTests
     public void Setup()
     {
         //Setup a test file to work with
-        File.WriteAllText("TestFile.txt", "Hellow World!");
+        OSFile.Save("./", "TestFile.txt", "Hello World!");
     }
 
     [Test]
     public void TestInvalidRead()
     {
-        var result = OSFile.FromDiskToBase64("Bunk filepath") switch
+        var result = OSFile.FromDisk("Bunk filepath") switch
         {
             var errRslt when errRslt.IsErr<NotImplementedException>() => false,
             var errRslt when errRslt.IsErr<FileNotFoundException>() => true,
@@ -25,7 +25,7 @@ public class OSFileTests
     [Test]
     public void TestInvalidRead_DiffSyntax()
     {
-        var result = OSFile.FromDiskToBase64("Bunk filepath");
+        var result = OSFile.FromDisk("Bunk filepath");
 
         Assert.IsTrue(result.IsErr<FileNotFoundException>());
     }
@@ -33,7 +33,7 @@ public class OSFileTests
     [Test]
     public void TestValidRead()
     {
-        var result = OSFile.FromDiskToBase64("TestFile.txt") switch
+        var result = OSFile.FromDisk("TestFile.txt") switch
         {
             var errRslt when errRslt.IsErr<Exception>() => false,
             var okRslt when okRslt.IsOK() => true,
@@ -46,10 +46,10 @@ public class OSFileTests
     [Test]
     public void TestWrite_Full()
     {
-        File.WriteAllText("1.txt", "Test");
-        var result = OSFile.FromDiskToBase64("1.txt").Unwrap();
+        OSFile.Save("./", "1.txt", "Test");
+        var result = OSFile.FromDisk("1.txt").Unwrap();
         _ = result.Save("./", "2.txt").Unwrap();
-        var result3 = OSFile.FromDiskToBase64("2.txt").Unwrap();
+        var result3 = OSFile.FromDisk("2.txt").Unwrap();
 
         Assert.That(result3.Base64, Is.EqualTo(result.Base64));
     }
