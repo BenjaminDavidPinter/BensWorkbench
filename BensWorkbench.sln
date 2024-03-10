@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BensWorkbench.Models", "Ben
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BensWorkbench.Models.Tests", "BensWorkbench.Models.Tests\BensWorkbench.Models.Tests.csproj", "{05F3986D-E7DE-4593-BDC3-46872C4B7DBD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BensWorkbench.Benches", "BensWorkbench.Benches\BensWorkbench.Benches.csproj", "{C58B9DAA-ACAA-4437-A31E-5208F40DEAF3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{05F3986D-E7DE-4593-BDC3-46872C4B7DBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05F3986D-E7DE-4593-BDC3-46872C4B7DBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05F3986D-E7DE-4593-BDC3-46872C4B7DBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C58B9DAA-ACAA-4437-A31E-5208F40DEAF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C58B9DAA-ACAA-4437-A31E-5208F40DEAF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C58B9DAA-ACAA-4437-A31E-5208F40DEAF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C58B9DAA-ACAA-4437-A31E-5208F40DEAF3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
