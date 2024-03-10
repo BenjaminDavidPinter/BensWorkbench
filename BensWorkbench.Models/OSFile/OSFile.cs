@@ -91,6 +91,7 @@ public class OSFile
 
     private Result<OSFile> WriteFileFromBase64Internal(string filePath, string fileName)
     {
+        if (string.IsNullOrEmpty(Base64)) return new InvalidDataException("Base64 is null");
         var fileBytes = Convert.FromBase64String(Base64);
         var path = Path.Combine(filePath, fileName);
 

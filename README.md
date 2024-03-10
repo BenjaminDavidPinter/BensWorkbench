@@ -7,7 +7,7 @@ In enterprise development, there are a subset of tasks which sit just above the 
 Navigating the library:
 
 - BensWorkbench.Extensions *[Namespace]*
-  - FileExtensions *[Static Class]*
+  - OSFile *[Static Class]*
     - ReadtoBase64() -> Read File to Base64 String
     - WriteBase64AsFile() -> Write Base64 String to File
 - BensWorkbench.Models *[Namespace]*
