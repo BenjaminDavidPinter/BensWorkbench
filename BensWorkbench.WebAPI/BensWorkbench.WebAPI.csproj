@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BensWorkbench.Models\BensWorkbench.Models.csproj" />
+    <ProjectReference Include="..\BensWorkbench.Services\BensWorkbench.Services.csproj" />
   </ItemGroup>
 
 </Project>
