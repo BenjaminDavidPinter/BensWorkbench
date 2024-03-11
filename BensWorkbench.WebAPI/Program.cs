@@ -22,13 +22,22 @@ app.UseHttpsRedirection();
 
 var summaries = new[]
 {
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+    "Freezing", 
+    "Bracing", 
+    "Chilly", 
+    "Cool", 
+    "Mild", 
+    "Warm", 
+    "Balmy", 
+    "Hot", 
+    "Sweltering", 
+    "Scorching"
 };
 
 app.MapGet("/weatherforecast", () =>
 {
     var forecast = new WeatherService();
-    var thisForecast = forecast.GetWeather(1.1, 2.3);
+    var thisForecast = forecast.GetWeather(40.245663, -74.846001);
     return thisForecast;
 })
 .WithName("GetWeatherForecast")
